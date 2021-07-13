@@ -14,7 +14,7 @@ export const throttleAll = <T>(
 
   if (
     !Array.isArray(tasks) ||
-    !tasks.every((task) => typeof task === `string`)
+    !tasks.every((task) => typeof task === `function`)
   ) {
     throw new TypeError(
       `Expected \`tasks\` to be a list of functions returning a promise`,
