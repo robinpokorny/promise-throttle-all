@@ -1,24 +1,33 @@
-/**
- * A Branded Type for values parseable to number.
- */
-export type NumberParseable = (number | string | boolean) & {
-  readonly isNumberParseble: unique symbol
-}
+export type Task<T> = () => Promise<T>
 
-/**
- * Check if value is parseable to number.
- * @example ```ts
- * isNumberParseable('AAAA');
- * //=> false
- *
- * isNumberParseable('100');
- * //=> true
- *
- * if (!isNumberParseable(value))
- *   throw new Error('Value can\'t be parseable to `Number`.')
- * return Number(value);
- * ```
- * @param value - An `unknown` value to be checked.
- */
-export const isNumberParseable = (value: unknown): value is NumberParseable =>
-  !Number.isNaN(Number(value))
+export const throttleAll = <T>(limit: number, tasks: Task<T>[]): Promise<T[]> =>
+  new Promise<T[]>((resolve, reject) => {
+    const notSettled = Symbol('not-settled')
+
+    const result: (T | symbol)[] = Array(tasks.length).fill(notSettled)
+
+    const entries = tasks.entries()
+
+    const next = () => {
+      const { done, value } = entries.next()
+
+      if (done) {
+        const isLast = !result.includes(notSettled)
+
+        if (isLast) resolve(result as T[])
+
+        return
+      }
+
+      const [index, task] = value
+
+      const onFulfilled = (x: T) => {
+        result[index] = x
+        next()
+      }
+
+      task().then(onFulfilled, reject)
+    }
+
+    Array(limit).fill(0).forEach(next)
+  })

@@ -1,9 +1,9 @@
 // @ts-check
 
-import { terser } from 'rollup-plugin-terser';
-import typescript2 from 'rollup-plugin-typescript2';
+import { terser } from 'rollup-plugin-terser'
+import typescript2 from 'rollup-plugin-typescript2'
 
-import pkg from './package.json';
+import pkg from './package.json'
 
 /**
  * Comment with library information to be appended in the generated bundles.
@@ -13,7 +13,7 @@ const banner = `/*!
  * (c) ${pkg.author.name}
  * Released under the ${pkg.license} License.
  */
-`;
+`
 
 /**
  * Creates an output options object for Rollup.js.
@@ -27,7 +27,7 @@ function createOutputOptions(options) {
     exports: 'named',
     sourcemap: true,
     ...options,
-  };
+  }
 }
 
 /**
@@ -69,6 +69,6 @@ const options = {
       tsconfig: './tsconfig.bundle.json',
     }),
   ],
-};
+}
 
-export default options;
+export default options

@@ -64,9 +64,23 @@
     "url": "git+https://github.com/robinpokorny/promise-throttle-all.git"
   },
   "keywords": [
-    "typescript",
-    "boilerplate",
-    "library"
+    "promise",
+		"throttle",
+		"limit",
+		"limited",
+    "concurrency",
+		"rate",
+		"batch",
+		"ratelimit",
+		"queue",
+		"discard",
+		"async",
+		"await",
+		"promises",
+		"time",
+		"out",
+    "wip",
+		"cancel"
   ],
   "bugs": {
     "url": "https://github.com/robinpokorny/promise-throttle-all/issues"

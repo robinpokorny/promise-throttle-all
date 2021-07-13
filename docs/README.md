@@ -6,55 +6,59 @@ Promise Throttle All
 
 ### Type aliases
 
-- [NumberParseable](README.md#numberparseable)
+- [Task](README.md#task)
 
 ### Functions
 
-- [isNumberParseable](README.md#isnumberparseable)
+- [throttleAll](README.md#throttleall)
 
 ## Type aliases
 
-### NumberParseable
+### Task
 
-Ƭ **NumberParseable**: `number` \| `string` \| `boolean` & { `isNumberParseble`: unique `symbol`  }
+Ƭ **Task**<`T`\>: () => `Promise`<`T`\>
 
-A Branded Type for values parseable to number.
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Type declaration
+
+▸ (): `Promise`<`T`\>
+
+##### Returns
+
+`Promise`<`T`\>
 
 #### Defined in
 
-[index.ts:4](https://github.com/robinpokorny/promise-throttle-all/blob/fb30276/src/index.ts#L4)
+[index.ts:1](https://github.com/robinpokorny/promise-throttle-all/blob/237e8d8/src/index.ts#L1)
 
 ## Functions
 
-### isNumberParseable
+### throttleAll
 
-▸ `Const` **isNumberParseable**(`value`): value is NumberParseable
+▸ `Const` **throttleAll**<`T`\>(`limit`, `tasks`): `Promise`<`T`[]\>
 
-Check if value is parseable to number.
+#### Type parameters
 
-**`example`** ```ts
-isNumberParseable('AAAA');
-//=> false
-
-isNumberParseable('100');
-//=> true
-
-if (!isNumberParseable(value))
-  throw new Error('Value can\'t be parseable to `Number`.')
-return Number(value);
-```
-@param value - An `unknown` value to be checked.
+| Name |
+| :------ |
+| `T` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `unknown` |
+| `limit` | `number` |
+| `tasks` | [`Task`](README.md#task)<`T`\>[] |
 
 #### Returns
 
-value is NumberParseable
+`Promise`<`T`[]\>
 
 #### Defined in
 
-[index.ts:23](https://github.com/robinpokorny/promise-throttle-all/blob/fb30276/src/index.ts#L23)
+[index.ts:3](https://github.com/robinpokorny/promise-throttle-all/blob/237e8d8/src/index.ts#L3)
