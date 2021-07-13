@@ -6,7 +6,7 @@ import util from 'util'
 const flush = () => new Promise((resolve) => setImmediate(resolve))
 
 const isPending = (promise: Promise<unknown>) =>
-  util.inspect(promise).includes('<pending>')
+  util.inspect(promise).includes(`<pending>`)
 
 // Create a Promise that can be resolved from outside
 const createPromise = () => {
@@ -22,7 +22,7 @@ const createPromise = () => {
   return { promise, resolver, rejecter }
 }
 
-test('runs tasks in order with concurency limit', async () => {
+test(`runs tasks in order with concurency limit`, async () => {
   const promises = Array(6).fill(0).map(createPromise)
   const tasks = promises.map(({ promise }) =>
     jest.fn().mockReturnValueOnce(promise),
@@ -73,7 +73,7 @@ test('runs tasks in order with concurency limit', async () => {
   await expect(result).resolves.toEqual([0, 1, 2, 3, 4, 5])
 })
 
-test('any promise can finish last', async () => {
+test(`any promise can finish last`, async () => {
   const promises = Array(4).fill(0).map(createPromise)
   const tasks = promises.map(({ promise }) =>
     jest.fn().mockReturnValueOnce(promise),
@@ -98,7 +98,7 @@ test('any promise can finish last', async () => {
   await expect(result).resolves.toEqual([0, 1, 2, 3])
 })
 
-test('works with higher limit', async () => {
+test(`works with higher limit`, async () => {
   const promises = Array(2).fill(0).map(createPromise)
   const tasks = promises.map(
     ({ promise }) =>
@@ -118,7 +118,7 @@ test('works with higher limit', async () => {
   await expect(result).resolves.toEqual([0, 1])
 })
 
-test('rejects when the first promise rejects', async () => {
+test(`rejects when the first promise rejects`, async () => {
   const promises = Array(2).fill(0).map(createPromise)
   const tasks = promises.map(
     ({ promise }) =>
@@ -138,4 +138,29 @@ test('rejects when the first promise rejects', async () => {
   expect(isPending(result)).toBeFalsy()
 
   await expect(result).rejects.toEqual(1)
+})
+
+test(`throws type error if limit is not an integer`, async () => {
+  expect(() => throttleAll(2.5, [])).toThrowErrorMatchingInlineSnapshot(
+    `"Expected \`limit\` to be a finite number > 0, got \`2.5\` (number)"`,
+  )
+  expect(() => throttleAll(-2, [])).toThrowErrorMatchingInlineSnapshot(
+    `"Expected \`limit\` to be a finite number > 0, got \`-2\` (number)"`,
+  )
+  expect(() => throttleAll(Infinity, [])).toThrowErrorMatchingInlineSnapshot(
+    `"Expected \`limit\` to be a finite number > 0, got \`Infinity\` (number)"`,
+  )
+  // @ts-ignore
+  expect(() => throttleAll(``, [])).toThrowErrorMatchingInlineSnapshot(
+    `"Expected \`limit\` to be a finite number > 0, got \`\` (string)"`,
+  )
+})
+
+test(`throws type error if not passed tasks`, async () => {
+  expect(() =>
+    // @ts-ignore
+    throttleAll(2, [Promise.resolve(1)]),
+  ).toThrowErrorMatchingInlineSnapshot(
+    `"Expected \`tasks\` to be a list of functions returning a promise"`,
+  )
 })

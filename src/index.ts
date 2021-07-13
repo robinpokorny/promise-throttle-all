@@ -1,9 +1,27 @@
 export type Task<T> = () => Promise<T>
 
-export const throttleAll = <T>(limit: number, tasks: Task<T>[]): Promise<T[]> =>
-  new Promise<T[]>((resolve, reject) => {
-    const notSettled = Symbol('not-settled')
+const notSettled = Symbol(`not-settled`)
 
+export const throttleAll = <T>(
+  limit: number,
+  tasks: Task<T>[],
+): Promise<T[]> => {
+  if (!Number.isInteger(limit) || limit < 1) {
+    throw new TypeError(
+      `Expected \`limit\` to be a finite number > 0, got \`${limit}\` (${typeof limit})`,
+    )
+  }
+
+  if (
+    !Array.isArray(tasks) ||
+    !tasks.every((task) => typeof task === `string`)
+  ) {
+    throw new TypeError(
+      `Expected \`tasks\` to be a list of functions returning a promise`,
+    )
+  }
+
+  return new Promise<T[]>((resolve, reject) => {
     const result: (T | symbol)[] = Array(tasks.length).fill(notSettled)
 
     const entries = tasks.entries()
@@ -31,3 +49,4 @@ export const throttleAll = <T>(limit: number, tasks: Task<T>[]): Promise<T[]> =>
 
     Array(limit).fill(0).forEach(next)
   })
+}

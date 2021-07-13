@@ -34,7 +34,7 @@ Promise Throttle All
 
 #### Defined in
 
-[index.ts:1](https://github.com/robinpokorny/promise-throttle-all/blob/237e8d8/src/index.ts#L1)
+[index.ts:1](https://github.com/robinpokorny/promise-throttle-all/blob/b09c7b6/src/index.ts#L1)
 
 ## Functions
 
@@ -61,4 +61,4 @@ Promise Throttle All
 
 #### Defined in
 
-[index.ts:3](https://github.com/robinpokorny/promise-throttle-all/blob/237e8d8/src/index.ts#L3)
+[index.ts:5](https://github.com/robinpokorny/promise-throttle-all/blob/b09c7b6/src/index.ts#L5)
