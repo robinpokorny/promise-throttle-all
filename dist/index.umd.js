@@ -1,13 +1,13 @@
 /*!
- * [libraryName] v0.0.0
- * (c) [authorFullName]
+ * promise-throttle-all v1.0.0
+ * (c) Robin Pokorny
  * Released under the MIT License.
  */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['[libraryCamelCaseName]'] = {}));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.promiseThrottleAll = {}));
 }(this, (function (exports) { 'use strict';
 
   /**
@@ -25,9 +25,7 @@
    * ```
    * @param value - An `unknown` value to be checked.
    */
-  var isNumberParseable = function (value) {
-      return !Number.isNaN(Number(value));
-  };
+  const isNumberParseable = (value) => !Number.isNaN(Number(value));
 
   exports.isNumberParseable = isNumberParseable;
 

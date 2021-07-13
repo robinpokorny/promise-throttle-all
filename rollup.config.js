@@ -23,7 +23,7 @@ const banner = `/*!
 function createOutputOptions(options) {
   return {
     banner,
-    name: '[libraryCamelCaseName]',
+    name: 'promiseThrottleAll',
     exports: 'named',
     sourcemap: true,
     ...options,

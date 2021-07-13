@@ -3,7 +3,7 @@
   "compilerOptions": {
     // Transpilation settings.
     "module": "ES2015",
-    "target": "ES5",
+    "target": "ES2015",
 
     // Output settings.
     "charset": "utf-8",
@@ -12,8 +12,8 @@
 
     // Type declaration settings.
     "declaration": true,
-    "declarationDir": "types/",
+    "declarationDir": "dist/",
     "declarationMap": true
   },
-  "exclude": ["./src/**/*.test.ts", "./src/**/*.test.tsx"]
+  "exclude": ["./src/**/*.test.ts"]
 }

@@ -1,6 +1,6 @@
 {
   "out": "./docs",
-  "name": "[libraryNameWithSpacesAndUpperCases]",
+  "name": "Promise Throttle All",
   "theme": "markdown",
   "readme": "none",
   "tsconfig": "./tsconfig.bundle.json"

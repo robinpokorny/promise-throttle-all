@@ -1,10 +1,16 @@
 {
-  "name": "[libraryName]",
-  "version": "0.0.0",
-  "description": "",
+  "name": "promise-throttle-all",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Robin Pokorny",
+    "email": "me@robinpokorny.com",
+    "url": "http://robinpokorny.com"
+  },
+  "description": "Promise.all with limited concurrency",
   "cdn": "dist/index.umd.js",
   "main": "dist/index.js",
-  "types": "types/index.d.ts",
+  "types": "dist/index.d.ts",
   "unpkg": "dist/index.umd.js",
   "module": "dist/index.esm.js",
   "jsdelivr": "dist/index.umd.js",
@@ -19,6 +25,10 @@
       "./dist/index.js"
     ]
   },
+  "files": [
+    "dist",
+    "src"
+  ],
   "dependencies": {},
   "devDependencies": {
     "@types/eslint": "^7.2.9",
@@ -51,19 +61,51 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/[repositoryOwner]/[repositoryName].git"
+    "url": "git+https://github.com/robinpokorny/promise-throttle-all.git"
   },
   "keywords": [
     "typescript",
     "boilerplate",
     "library"
   ],
-  "author": {
-    "name": "[authorFullName]"
-  },
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/[repositoryOwner]/[repositoryName]/issues"
+    "url": "https://github.com/robinpokorny/promise-throttle-all/issues"
   },
-  "homepage": "https://github.com/[repositoryOwner]/[repositoryName]#readme"
+  "homepage": "https://github.com/robinpokorny/promise-throttle-all#readme",
+  "engines": {
+    "node": ">=12"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "resolver": "ts-jest-resolver"
+  },
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 2021
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:prettier/recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "ignorePatterns": [
+      "docs/",
+      "dist/"
+    ]
+  }
 }

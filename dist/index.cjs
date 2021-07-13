@@ -1,6 +1,6 @@
 /*!
- * [libraryName] v0.0.0
- * (c) [authorFullName]
+ * promise-throttle-all v1.0.0
+ * (c) Robin Pokorny
  * Released under the MIT License.
  */
 
@@ -23,9 +23,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
  * ```
  * @param value - An `unknown` value to be checked.
  */
-var isNumberParseable = function (value) {
-    return !Number.isNaN(Number(value));
-};
+const isNumberParseable = (value) => !Number.isNaN(Number(value));
 
 exports.isNumberParseable = isNumberParseable;
 //# sourceMappingURL=index.cjs.map

@@ -1,6 +1,6 @@
-[libraryNameWithSpacesAndUpperCases]
+Promise Throttle All
 
-# [libraryNameWithSpacesAndUpperCases]
+# Promise Throttle All
 
 ## Table of contents
 

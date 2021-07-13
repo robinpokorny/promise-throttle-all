@@ -1,19 +1,19 @@
-# [libraryNameWithSpacesAndUpperCases]
+# Promise Throttle All
 
-[![Build Status](https://travis-ci.org/[repositoryOwner]/[repositoryName].svg?branch=master)](https://travis-ci.org/[repositoryOwner]/[repositoryName])
-[![License](https://badgen.net/github/license/[repositoryOwner]/[repositoryName])](./LICENSE)
-[![Library minified size](https://badgen.net/bundlephobia/min/[libraryName])](https://bundlephobia.com/result?p=[libraryName])
-[![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/[libraryName])](https://bundlephobia.com/result?p=[libraryName])
+[![Build Status](https://travis-ci.org/robinpokorny/promise-throttle-all.svg?branch=master)](https://travis-ci.org/robinpokorny/promise-throttle-all)
+[![License](https://badgen.net/github/license/robinpokorny/promise-throttle-all)](./LICENSE)
+[![Library minified size](https://badgen.net/bundlephobia/min/promise-throttle-all)](https://bundlephobia.com/result?p=promise-throttle-all)
+[![Library minified + gzipped size](https://badgen.net/bundlephobia/minzip/promise-throttle-all)](https://bundlephobia.com/result?p=promise-throttle-all)
 
 ## Installation
 
 This library is published in the NPM registry and can be installed using any compatible package manager.
 
 ```sh
-npm install [libraryName] --save
+npm install promise-throttle-all --save
 
 # For Yarn, use the command below.
-yarn add [libraryName]
+yarn add promise-throttle-all
 ```
 
 ### Installation from CDN
@@ -22,14 +22,14 @@ This module has an UMD bundle available through JSDelivr and Unpkg CDNs.
 
 ```html
 <!-- For UNPKG use the code below. -->
-<script src="https://unpkg.com/[libraryName]"></script>
+<script src="https://unpkg.com/promise-throttle-all"></script>
 
 <!-- For JSDelivr use the code below. -->
-<script src="https://cdn.jsdelivr.net/npm/[libraryName]"></script>
+<script src="https://cdn.jsdelivr.net/npm/promise-throttle-all"></script>
 
 <script>
-  // UMD module is exposed through the "[libraryCamelCaseName]" global variable.
-  console.log([libraryCamelCaseName]);
+  // UMD module is exposed through the "promiseThrottleAll" global variable.
+  console.log(promiseThrottleAll);
 </script>
 ```
 
