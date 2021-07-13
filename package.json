@@ -65,22 +65,22 @@
   },
   "keywords": [
     "promise",
-		"throttle",
-		"limit",
-		"limited",
+    "throttle",
+    "limit",
+    "limited",
     "concurrency",
-		"rate",
-		"batch",
-		"ratelimit",
-		"queue",
-		"discard",
-		"async",
-		"await",
-		"promises",
-		"time",
-		"out",
+    "rate",
+    "batch",
+    "ratelimit",
+    "queue",
+    "discard",
+    "async",
+    "await",
+    "promises",
+    "time",
+    "out",
     "wip",
-		"cancel"
+    "cancel"
   ],
   "bugs": {
     "url": "https://github.com/robinpokorny/promise-throttle-all/issues"
@@ -93,7 +93,8 @@
     "printWidth": 80,
     "semi": false,
     "singleQuote": true,
-    "trailingComma": "all"
+    "trailingComma": "all",
+    "endOfLine": "auto"
   },
   "jest": {
     "preset": "ts-jest",
