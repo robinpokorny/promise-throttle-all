@@ -36,7 +36,7 @@ A Task is a nullary function that returns a promise
 
 #### Defined in
 
-[index.ts:4](https://github.com/robinpokorny/promise-throttle-all/blob/62c374f/src/index.ts#L4)
+[index.ts:4](https://github.com/robinpokorny/promise-throttle-all/blob/d0fad00/src/index.ts#L4)
 
 ## Functions
 
@@ -46,7 +46,8 @@ A Task is a nullary function that returns a promise
 
 Run tasks with limited concurency.
 
-**`example`** ```ts
+**`example`**
+```ts
 const task1 = () => new Promise((resolve) => {
   setTimeout(resolve, 100, 1);
 });
@@ -57,11 +58,6 @@ throttleAll(1, [task1, task2])
 // task2 will run after task2 finishes
 // logs: `[1, 2]`
 ```
-@param limit - Limit of tasks that run at once.
-@param tasks - List of tasks to run.
-@returns A promise that fulfills to an array of the results
-of the input promises or rejects immediately upon any of
-the input tasks rejecting.
 
 #### Type parameters
 
@@ -71,15 +67,19 @@ the input tasks rejecting.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `limit` | `number` |
-| `tasks` | [`Task`](README.md#task)<`T`\>[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `limit` | `number` | Limit of tasks that run at once. |
+| `tasks` | [`Task`](README.md#task)<`T`\>[] | List of tasks to run. |
 
 #### Returns
 
 `Promise`<`T`[]\>
 
+A promise that fulfills to an array of the results
+of the input promises or rejects immediately upon any of
+the input tasks rejecting.
+
 #### Defined in
 
-[index.ts:27](https://github.com/robinpokorny/promise-throttle-all/blob/62c374f/src/index.ts#L27)
+[index.ts:28](https://github.com/robinpokorny/promise-throttle-all/blob/d0fad00/src/index.ts#L28)

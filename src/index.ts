@@ -7,7 +7,13 @@ const notSettled = Symbol(`not-settled`)
 
 /**
  * Run tasks with limited concurency.
- * @example ```ts
+ * @param limit - Limit of tasks that run at once.
+ * @param tasks - List of tasks to run.
+ * @returns A promise that fulfills to an array of the results
+ * of the input promises or rejects immediately upon any of
+ * the input tasks rejecting.
+ * @example
+ * ```ts
  * const task1 = () => new Promise((resolve) => {
  *   setTimeout(resolve, 100, 1);
  * });
@@ -18,11 +24,6 @@ const notSettled = Symbol(`not-settled`)
  * // task2 will run after task2 finishes
  * // logs: `[1, 2]`
  * ```
- * @param limit - Limit of tasks that run at once.
- * @param tasks - List of tasks to run.
- * @returns A promise that fulfills to an array of the results
- * of the input promises or rejects immediately upon any of
- * the input tasks rejecting.
  */
 export const throttleAll = <T>(
   limit: number,
