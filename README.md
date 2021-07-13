@@ -10,6 +10,25 @@
 
 Limit in-progress async operations, like running only few API requests at a time
 
+## Quick use
+
+```ts
+import { throttleAll } from 'promise-throttle-all'
+
+// task1 takes 100ms to complete
+const task1 = () => new Promise((resolve) => {
+  setTimeout(resolve, 100, 1);
+});
+
+const task2 = () => Promise.resolve(2);
+
+// Limit concurently running promises to 1
+throttleAll(1, [task1, task2])
+  .then((values) => { console.log(values) });
+// task2 will run after task1 finishes
+// logs: `[1, 2]`
+```
+
 ## Installation
 
 This library is published in the NPM registry and can be installed using any compatible package manager.
