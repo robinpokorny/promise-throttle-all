@@ -21,7 +21,7 @@ const notSettled = Symbol(`not-settled`)
  *
  * throttleAll(1, [task1, task2])
  *   .then((values) => { console.log(values) });
- * // task2 will run after task2 finishes
+ * // task2 will run after task1 finishes
  * // logs: `[1, 2]`
  * ```
  */
@@ -70,6 +70,7 @@ export const throttleAll = <T>(
       task().then(onFulfilled, reject)
     }
 
+    // Run next() `limit` times
     Array(limit).fill(0).forEach(next)
   })
 }

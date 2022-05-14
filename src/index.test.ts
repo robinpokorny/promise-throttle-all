@@ -98,7 +98,7 @@ test(`any promise can finish last`, async () => {
   await expect(result).resolves.toEqual([0, 1, 2, 3])
 })
 
-test(`works with higher limit`, async () => {
+test(`works with limit greater that the number of tasks`, async () => {
   const promises = Array(2).fill(0).map(createPromise)
   const tasks = promises.map(
     ({ promise }) =>

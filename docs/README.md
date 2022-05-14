@@ -1,5 +1,3 @@
-Promise Throttle All
-
 # Promise Throttle All
 
 ## Table of contents
@@ -36,13 +34,13 @@ A Task is a nullary function that returns a promise
 
 #### Defined in
 
-[index.ts:4](https://github.com/robinpokorny/promise-throttle-all/blob/d0fad00/src/index.ts#L4)
+[index.ts:4](https://github.com/robinpokorny/promise-throttle-all/blob/main/src/index.ts#L4)
 
 ## Functions
 
 ### throttleAll
 
-▸ `Const` **throttleAll**<`T`\>(`limit`, `tasks`): `Promise`<`T`[]\>
+▸ **throttleAll**<`T`\>(`limit`, `tasks`): `Promise`<`T`[]\>
 
 Run tasks with limited concurency.
 
@@ -55,7 +53,7 @@ const task2 = () => Promise.resolve(2);
 
 throttleAll(1, [task1, task2])
   .then((values) => { console.log(values) });
-// task2 will run after task2 finishes
+// task2 will run after task1 finishes
 // logs: `[1, 2]`
 ```
 
@@ -82,4 +80,4 @@ the input tasks rejecting.
 
 #### Defined in
 
-[index.ts:28](https://github.com/robinpokorny/promise-throttle-all/blob/d0fad00/src/index.ts#L28)
+[index.ts:28](https://github.com/robinpokorny/promise-throttle-all/blob/main/src/index.ts#L28)

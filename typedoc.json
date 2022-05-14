@@ -3,5 +3,8 @@
   "name": "Promise Throttle All",
   "theme": "markdown",
   "readme": "none",
-  "tsconfig": "./tsconfig.bundle.json"
+  "tsconfig": "./tsconfig.bundle.json",
+  "githubPages": false,
+  "gitRevision": "main",
+  "hideBreadcrumbs": true
 }
