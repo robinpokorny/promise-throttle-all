@@ -90,11 +90,9 @@
     "node": ">=12"
   },
   "prettier": {
-    "printWidth": 80,
     "semi": false,
     "singleQuote": true,
-    "trailingComma": "all",
-    "endOfLine": "auto"
+    "trailingComma": "all"
   },
   "jest": {
     "preset": "ts-jest",
