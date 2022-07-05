@@ -1,4 +1,5 @@
 # 🤏 Promise Throttle All
+
 > Promise.all with limited concurrency
 
 [![CI][gh-image]][gh-url]
@@ -16,15 +17,17 @@ Limit in-progress async operations, like running only few API requests at a time
 import { throttleAll } from 'promise-throttle-all'
 
 // task1 takes 100ms to complete
-const task1 = () => new Promise((resolve) => {
-  setTimeout(resolve, 100, 1);
-});
+const task1 = () =>
+  new Promise((resolve) => {
+    setTimeout(resolve, 100, 1)
+  })
 
-const task2 = () => Promise.resolve(2);
+const task2 = () => Promise.resolve(2)
 
 // Limit concurently running promises to 1
-throttleAll(1, [task1, task2])
-  .then((values) => { console.log(values) });
+throttleAll(1, [task1, task2]).then((values) => {
+  console.log(values)
+})
 // task2 will run after task1 finishes
 // logs: `[1, 2]`
 ```
@@ -53,7 +56,7 @@ This module has an UMD bundle available through JSDelivr and Unpkg CDNs.
 
 <script>
   // UMD module is exposed through the "promiseThrottleAll" global variable.
-  console.log(promiseThrottleAll);
+  console.log(promiseThrottleAll)
 </script>
 ```
 
@@ -65,8 +68,8 @@ This module has an UMD bundle available through JSDelivr and Unpkg CDNs.
 
 Released under [MIT License](./LICENSE).
 
-
 <!-- Markdown link & img dfn's -->
+
 [gh-image]: https://img.shields.io/github/workflow/status/robinpokorny/promise-throttle-all/CI?logo=github&style=flat-square
 [gh-url]: https://github.com/robinpokorny/promise-throttle-all/actions/workflows/main.yml
 [license-image]: https://img.shields.io/github/license/robinpokorny/promise-throttle-all?style=flat-square
